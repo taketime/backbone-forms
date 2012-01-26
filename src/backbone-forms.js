@@ -190,7 +190,8 @@
                     el.append(fieldset);
                 });
             } else {
-                var target = $('<ul>');
+                // var target = $('<ul>');
+                var target = $('<div class="form">');
                 el.append(target)
                 this.renderFields(fieldsToRender, target);
             }
@@ -341,9 +342,12 @@
 
     var Field = Backbone.View.extend({
 
-        tagName: 'li',
+        // tagName: 'li',
+        tagName: 'div',
+        // tagName: 'fieldset',        
 
-        className: 'bbf-field',
+        // className: 'bbf-field',
+        className: '',        
 
         events: {
             'click label': 'logValue'
@@ -865,7 +869,9 @@
     editors.Radio = editors.Select.extend({
 
         tagName: 'ul',
-        className: 'bbf-radio',
+        // tagName: 'div',        
+        // className: 'bbf-radio',
+        className: 'inputs-list',        
 
         getValue: function() {
             return $(this.el).find('input[type=radio]:checked').val();
@@ -918,7 +924,9 @@
     editors.Checkboxes = editors.Select.extend({
 
         tagName: 'ul',
-        className: 'bbf-checkboxes',
+        // tagName: 'div',        
+        // className: 'bbf-checkboxes',
+        className: 'inputs-list',        
 
         getValue: function() {
             var values = [];
